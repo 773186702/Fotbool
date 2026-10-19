@@ -1,0 +1,7 @@
+{
+  "files.exclude": { "**/*.meta": true, "Library": true, "Temp": true, "obj": true },
+  "search.exclude": { "Library": true, "Temp": true, "Logs": true, "obj": true },
+  "files.eol": "\n",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4
+}

@@ -1,0 +1,3015 @@
+{
+  "generatedAtUtc": "2026-09-18T00:12:09.6044637Z",
+  "assetsRoot": "D:\\Fotbool\\Assets",
+  "fileCount": 16,
+  "lineCount": 1532,
+  "files": [
+    {
+      "path": "_Project/Scripts/AI/FootballAI.cs",
+      "lines": 117,
+      "sha256": "90da0378e49f32f3d658cd575f6160c36e4e3f07ec5cff1567fa990c87581cdc"
+    },
+    {
+      "path": "_Project/Scripts/AI/TacticalAI.cs",
+      "lines": 67,
+      "sha256": "9364f03159376aed72280d84a133eb00af5337d9412886b3f958ca6e7fabb522"
+    },
+    {
+      "path": "_Project/Scripts/Core/MatchBootstrapper.cs",
+      "lines": 87,
+      "sha256": "7b1649c1dfcdb340f8d1e78d8faa6b933cf5f09d4680a13b294e85fd127828ac"
+    },
+    {
+      "path": "_Project/Scripts/Core/MatchManager.cs",
+      "lines": 133,
+      "sha256": "0d96615f2f56983eb3b290d0ff48af81fb59be3afc42b0c59dd9454877c14552"
+    },
+    {
+      "path": "_Project/Scripts/Data/GameTypes.cs",
+      "lines": 115,
+      "sha256": "09581ae670d44c2e8a68ea8290adc691b29e04abf0e0fba397ad467cd99f6119"
+    },
+    {
+      "path": "_Project/Scripts/Data/PlayerDataSO.cs",
+      "lines": 114,
+      "sha256": "71592ca15b219aa2f8d74dfbcc8c2334958607a176c6f5027878a7679c206dee"
+    },
+    {
+      "path": "_Project/Scripts/Data/TeamDataSO.cs",
+      "lines": 108,
+      "sha256": "c609746a4445831380140c3a3e7dafcd10e6b87ce3e55f49f1f11d0958ff6667"
+    },
+    {
+      "path": "_Project/Scripts/Gameplay/BallPhysics.cs",
+      "lines": 111,
+      "sha256": "8fb1dc86f2ebe6e7164990fbd4e6d5e2db30d31b0966d999383bd96201c1b29e"
+    },
+    {
+      "path": "_Project/Scripts/Gameplay/PlayerController.cs",
+      "lines": 125,
+      "sha256": "4a47a1bf059e8b1242d0f14d42722b6a812c3dba9d950e5ae73532eaf847f803"
+    },
+    {
+      "path": "_Project/Scripts/Inputs/MobileControls.cs",
+      "lines": 100,
+      "sha256": "faf31a77f989ff274e28b57d8e128419253f42b61f6cc0f7c8a9e1ab3520bcf4"
+    },
+    {
+      "path": "_Project/Scripts/Management/ClubManager.cs",
+      "lines": 115,
+      "sha256": "bfaf24145b1ff35e1087c127239003bdcc6bd22ccfb74a17b9cba927cfea4afb"
+    },
+    {
+      "path": "_Project/Scripts/Performance/AdaptiveGraphics.cs",
+      "lines": 44,
+      "sha256": "9ec8c2fc76d15c6d2d25c4be4ea745bd15316ebd06f677a3f7ac41e0821e1412"
+    },
+    {
+      "path": "_Project/Scripts/Performance/ObjectPool.cs",
+      "lines": 33,
+      "sha256": "7ab9910530061618fec1f46d28c77bf4a690665d3772d58ed14deaf0255ab895"
+    },
+    {
+      "path": "_Project/Scripts/Presentation/CameraController.cs",
+      "lines": 79,
+      "sha256": "3bff57c9dd5655b2e6bdaf0827295117f830930786162324230131cc518b8720"
+    },
+    {
+      "path": "_Project/Scripts/Presentation/ReplayRecorder.cs",
+      "lines": 110,
+      "sha256": "04b1394d38052a39eb7278a5fb84c665bcd49ef4e995b3e35be2806ba00a3418"
+    },
+    {
+      "path": "_Project/Tests/EditMode/CoreTests.cs",
+      "lines": 74,
+      "sha256": "69ff34d5adc1e442b4e3eaee07996ac0dd23b782a6018fee52e0e04bb51ece4e"
+    }
+  ],
+  "types": {
+    "Fotbool.AI.Branch": {
+      "kind": "class",
+      "namespace": "Fotbool.AI",
+      "name": "Branch",
+      "file": "_Project/Scripts/AI/FootballAI.cs",
+      "lineStart": 25,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "Node"
+      ],
+      "members": {
+        "condition": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Func\u003Cbool\u003E",
+          "overloads": 1
+        },
+        "action": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Action",
+          "overloads": 1
+        },
+        ".ctor": {
+          "kind": "constructor",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "",
+          "overloads": 1
+        },
+        "Tick": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.AI.FootballAI": {
+      "kind": "class",
+      "namespace": "Fotbool.AI",
+      "name": "FootballAI",
+      "file": "_Project/Scripts/AI/FootballAI.cs",
+      "lineStart": 9,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Difficulty": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "AIDifficulty",
+          "overloads": 1
+        },
+        "Match": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "MatchManager",
+          "overloads": 1
+        },
+        "Team": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TacticalAI",
+          "overloads": 1
+        },
+        "FormationSlot": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "CurrentState": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "State",
+          "overloads": 1
+        },
+        "player": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "PlayerController",
+          "overloads": 1
+        },
+        "nextThink": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "nextDecision": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "root": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Node",
+          "overloads": 1
+        },
+        "ReactionSeconds": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "float",
+          "overloads": 1
+        },
+        "AimError": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "float",
+          "overloads": 1
+        },
+        "Awake": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "IsPresser": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "DecideOnBall": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Update": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.AI.Node": {
+      "kind": "class",
+      "namespace": "Fotbool.AI",
+      "name": "Node",
+      "file": "_Project/Scripts/AI/FootballAI.cs",
+      "lineStart": 24,
+      "abstract": true,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Tick": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.AI.Selector": {
+      "kind": "class",
+      "namespace": "Fotbool.AI",
+      "name": "Selector",
+      "file": "_Project/Scripts/AI/FootballAI.cs",
+      "lineStart": 32,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "Node"
+      ],
+      "members": {
+        "nodes": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Node[]",
+          "overloads": 1
+        },
+        ".ctor": {
+          "kind": "constructor",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "",
+          "overloads": 1
+        },
+        "Tick": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.AI.State": {
+      "kind": "enum",
+      "namespace": "Fotbool.AI",
+      "name": "State",
+      "file": "_Project/Scripts/AI/FootballAI.cs",
+      "lineStart": 12,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "HoldFormation": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Chase": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Support": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Dribble": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Pass": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Shoot": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Tackle": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "GuardGoal": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.AI.TacticalAI": {
+      "kind": "class",
+      "namespace": "Fotbool.AI",
+      "name": "TacticalAI",
+      "file": "_Project/Scripts/AI/TacticalAI.cs",
+      "lineStart": 9,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Match": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "MatchManager",
+          "overloads": 1
+        },
+        "Side": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TeamSide",
+          "overloads": 1
+        },
+        "Tactics": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TacticsProfile",
+          "overloads": 1
+        },
+        "Adaptive": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Pressing": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "nextThink": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "advance": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "Formation433": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector2[]",
+          "overloads": 1
+        },
+        "Formation442": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector2[]",
+          "overloads": 1
+        },
+        "Slot": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "Vector2",
+          "overloads": 1
+        },
+        "Update": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Target": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "Vector3",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Core.MatchBootstrapper": {
+      "kind": "class",
+      "namespace": "Fotbool.Core",
+      "name": "MatchBootstrapper",
+      "file": "_Project/Scripts/Core/MatchBootstrapper.cs",
+      "lineStart": 11,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Difficulty": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "AIDifficulty",
+          "overloads": 1
+        },
+        "materials": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "System.Collections.Generic.List\u003CMaterial\u003E",
+          "overloads": 1
+        },
+        "root": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "GameObject",
+          "overloads": 1
+        },
+        "Material": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "Material",
+          "overloads": 1
+        },
+        "Shape": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 5,
+          "type": "GameObject",
+          "overloads": 1
+        },
+        "Start": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDestroy": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Core.MatchManager": {
+      "kind": "class",
+      "namespace": "Fotbool.Core",
+      "name": "MatchManager",
+      "file": "_Project/Scripts/Core/MatchManager.cs",
+      "lineStart": 11,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Players": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "List\u003CPlayerController\u003E",
+          "overloads": 1
+        },
+        "Ball": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "BallPhysics",
+          "overloads": 1
+        },
+        "Phase": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "MatchPhase",
+          "overloads": 1
+        },
+        "HomeGoals": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "AwayGoals": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "Elapsed": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "Duration": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "Progress": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "HomeAttackSign": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "GoalScored": {
+          "kind": "event",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Action\u003CTeamSide\u003E",
+          "overloads": 1
+        },
+        "Finished": {
+          "kind": "event",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Action",
+          "overloads": 1
+        },
+        "startPositions": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector3[]",
+          "overloads": 1
+        },
+        "startRotations": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Quaternion[]",
+          "overloads": 1
+        },
+        "secondHalf": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "oldTimeScale": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "Initialize": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "Update": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Nearest": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 3,
+          "type": "PlayerController",
+          "overloads": 1
+        },
+        "PassTarget": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "PlayerController",
+          "overloads": 1
+        },
+        "ResetKickoff": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "SetPhase": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDestroy": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Core.MatchPhase": {
+      "kind": "enum",
+      "namespace": "Fotbool.Core",
+      "name": "MatchPhase",
+      "file": "_Project/Scripts/Core/MatchManager.cs",
+      "lineStart": 9,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Playing": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Paused": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Replay": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Finished": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.AIDifficulty": {
+      "kind": "enum",
+      "namespace": "Fotbool.Data",
+      "name": "AIDifficulty",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 38,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Beginner": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Easy": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Medium": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Hard": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Legendary": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.AttributeType": {
+      "kind": "enum",
+      "namespace": "Fotbool.Data",
+      "name": "AttributeType",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 11,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Pace": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Shooting": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Passing": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Dribbling": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Defending": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Physicality": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Goalkeeping": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.MatchResult": {
+      "kind": "struct",
+      "namespace": "Fotbool.Data",
+      "name": "MatchResult",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 92,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "homeTeamId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "awayTeamId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "homeGoals": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "awayGoals": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "played": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Summary": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.MatchSetup": {
+      "kind": "struct",
+      "namespace": "Fotbool.Data",
+      "name": "MatchSetup",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 104,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Home": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TeamProfile",
+          "overloads": 1
+        },
+        "Away": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TeamProfile",
+          "overloads": 1
+        },
+        "Difficulty": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "AIDifficulty",
+          "overloads": 1
+        },
+        "CompetitionId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "FixtureId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "IsUserHome": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "HalfLengthSeconds": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.Mentality": {
+      "kind": "enum",
+      "namespace": "Fotbool.Data",
+      "name": "Mentality",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 28,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "UltraDefensive": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Defensive": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Balanced": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Attacking": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "AllOutAttack": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.PlayerDataSO": {
+      "kind": "class",
+      "namespace": "Fotbool.Data",
+      "name": "PlayerDataSO",
+      "file": "_Project/Scripts/Data/PlayerDataSO.cs",
+      "lineStart": 63,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [
+        "ScriptableObject"
+      ],
+      "members": {
+        "playerId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "fullName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "age": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "nationality": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "position": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "PlayerPosition",
+          "overloads": 1
+        },
+        "pace": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "shooting": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "passing": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "dribbling": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "defending": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "physicality": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "goalkeeping": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "potential": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "marketValue": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "long",
+          "overloads": 1
+        },
+        "weeklyWage": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "long",
+          "overloads": 1
+        },
+        "contractYears": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "ToProfile": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "PlayerProfile",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.PlayerPosition": {
+      "kind": "enum",
+      "namespace": "Fotbool.Data",
+      "name": "PlayerPosition",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 6,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "GK": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "CB": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "LB": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "RB": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "CDM": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "CM": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "CAM": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "LM": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "RM": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "LW": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "RW": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "ST": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "CF": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.PlayerProfile": {
+      "kind": "class",
+      "namespace": "Fotbool.Data",
+      "name": "PlayerProfile",
+      "file": "_Project/Scripts/Data/PlayerDataSO.cs",
+      "lineStart": 10,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "id": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "fullName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "age": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "nationality": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "position": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "PlayerPosition",
+          "overloads": 1
+        },
+        "overall": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "potential": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "marketValue": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "long",
+          "overloads": 1
+        },
+        "wage": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "long",
+          "overloads": 1
+        },
+        "contractYears": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "stamina": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "form": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "attributes": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int[]",
+          "overloads": 1
+        },
+        "GetAttribute": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "int",
+          "overloads": 1
+        },
+        "SetAttribute": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "void",
+          "overloads": 1
+        },
+        "IsGoalkeeper": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "RecalculateOverall": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "ComputeOverall": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "int",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.PositionFamily": {
+      "kind": "enum",
+      "namespace": "Fotbool.Data",
+      "name": "PositionFamily",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 47,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Goalkeeper": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Defender": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Midfielder": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Attacker": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.PositionMath": {
+      "kind": "static class",
+      "namespace": "Fotbool.Data",
+      "name": "PositionMath",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 55,
+      "abstract": false,
+      "sealed": false,
+      "static": true,
+      "baseTypes": [],
+      "members": {
+        "Family": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "PositionFamily",
+          "overloads": 1
+        },
+        "Compatibility": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "float",
+          "overloads": 1
+        },
+        "IsLeft": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "bool",
+          "overloads": 1
+        },
+        "IsCentral": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.TacticsProfile": {
+      "kind": "class",
+      "namespace": "Fotbool.Data",
+      "name": "TacticsProfile",
+      "file": "_Project/Scripts/Data/TeamDataSO.cs",
+      "lineStart": 6,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "formationId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "mentality": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Mentality",
+          "overloads": 1
+        },
+        "pressingIntensity": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "defensiveLine": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "width": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "tempo": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "counterAttack": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "offsideTrap": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.TeamDataSO": {
+      "kind": "class",
+      "namespace": "Fotbool.Data",
+      "name": "TeamDataSO",
+      "file": "_Project/Scripts/Data/TeamDataSO.cs",
+      "lineStart": 67,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [
+        "ScriptableObject"
+      ],
+      "members": {
+        "teamName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "shortName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "city": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "country": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "primaryColor": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Color",
+          "overloads": 1
+        },
+        "secondaryColor": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Color",
+          "overloads": 1
+        },
+        "crestStyleId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "crestPatternId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "stadiumName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "stadiumCapacity": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "formationId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "ToProfile": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TeamProfile",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.TeamProfile": {
+      "kind": "class",
+      "namespace": "Fotbool.Data",
+      "name": "TeamProfile",
+      "file": "_Project/Scripts/Data/TeamDataSO.cs",
+      "lineStart": 19,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "id": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "name": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "shortName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "city": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "country": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "isNationalTeam": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "primaryColor": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Color",
+          "overloads": 1
+        },
+        "secondaryColor": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Color",
+          "overloads": 1
+        },
+        "crestStyleId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "crestPatternId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "homeKitId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "awayKitId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "stadiumName": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "stadiumCapacity": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "formationId": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "string",
+          "overloads": 1
+        },
+        "tactics": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TacticsProfile",
+          "overloads": 1
+        },
+        "squad": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "System.Collections.Generic.List\u003CPlayerProfile\u003E",
+          "overloads": 1
+        },
+        "budget": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "long",
+          "overloads": 1
+        },
+        "reputation": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "OverallRating": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Data.TeamSide": {
+      "kind": "enum",
+      "namespace": "Fotbool.Data",
+      "name": "TeamSide",
+      "file": "_Project/Scripts/Data/GameTypes.cs",
+      "lineStart": 22,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Home": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Away": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Gameplay.BallPhysics": {
+      "kind": "class",
+      "namespace": "Fotbool.Gameplay",
+      "name": "BallPhysics",
+      "file": "_Project/Scripts/Gameplay/BallPhysics.cs",
+      "lineStart": 5,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "magnusCoefficient": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "airDrag": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "rollingDeceleration": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "restitution": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "maxSpeed": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "Body": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Rigidbody",
+          "overloads": 1
+        },
+        "LastTouch": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "PlayerController",
+          "overloads": 1
+        },
+        "CanControl": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "controlAllowedAt": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "radius": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "material": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "PhysicMaterial",
+          "overloads": 1
+        },
+        "grounded": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Awake": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "FixedUpdate": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnCollisionStay": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnCollisionEnter": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "UpdateGround": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "IsReachable": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Kick": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 3,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Dribble": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "void",
+          "overloads": 1
+        },
+        "ResetBall": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDestroy": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Gameplay.PlayerController": {
+      "kind": "class",
+      "namespace": "Fotbool.Gameplay",
+      "name": "PlayerController",
+      "file": "_Project/Scripts/Gameplay/PlayerController.cs",
+      "lineStart": 6,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Profile": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "PlayerProfile",
+          "overloads": 1
+        },
+        "Side": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TeamSide",
+          "overloads": 1
+        },
+        "AttackSign": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "IsHuman": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Ball": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "BallPhysics",
+          "overloads": 1
+        },
+        "Body": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Rigidbody",
+          "overloads": 1
+        },
+        "Fitness": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "HasBall": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "MoveIntent": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Vector3",
+          "overloads": 1
+        },
+        "Sprinting": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "nextAction": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "animator": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Animator",
+          "overloads": 1
+        },
+        "SpeedHash": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "KickHash": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "Awake": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Initialize": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 3,
+          "type": "void",
+          "overloads": 1
+        },
+        "SetMove": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "void",
+          "overloads": 1
+        },
+        "FixedUpdate": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Strike": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 2,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Shoot": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 3,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Pass": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Tackle": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "SkillMove": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "bool",
+          "overloads": 1
+        },
+        "ResetPosition": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Inputs.MobileControls": {
+      "kind": "class",
+      "namespace": "Fotbool.Inputs",
+      "name": "MobileControls",
+      "file": "_Project/Scripts/Inputs/MobileControls.cs",
+      "lineStart": 10,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Match": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "MatchManager",
+          "overloads": 1
+        },
+        "View": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "CameraController",
+          "overloads": 1
+        },
+        "Selected": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "PlayerController",
+          "overloads": 1
+        },
+        "Labels": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "string[]",
+          "overloads": 1
+        },
+        "joystickFinger": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "origin": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector2",
+          "overloads": 1
+        },
+        "stick": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector2",
+          "overloads": 1
+        },
+        "sprint": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Button": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "Rect",
+          "overloads": 1
+        },
+        "Start": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "SwitchPlayer": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Action": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "Update": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnGUI": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Clear": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnApplicationFocus": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDisable": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Management.ClubManager": {
+      "kind": "class",
+      "namespace": "Fotbool.Management",
+      "name": "ClubManager",
+      "file": "_Project/Scripts/Management/ClubManager.cs",
+      "lineStart": 8,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Club": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "TeamProfile",
+          "overloads": 1
+        },
+        "Changed": {
+          "kind": "event",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Action",
+          "overloads": 1
+        },
+        "Week": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "CoachRating": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "CoachWage": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "long",
+          "overloads": 1
+        },
+        "trained": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "System.Collections.Generic.HashSet\u003Cstring\u003E",
+          "overloads": 1
+        },
+        "CreateClub": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 5,
+          "type": "void",
+          "overloads": 1
+        },
+        "MinimumFee": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "long",
+          "overloads": 1
+        },
+        "BuyPlayer": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 5,
+          "type": "bool",
+          "overloads": 1
+        },
+        "SellPlayer": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 5,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Transfer": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 6,
+          "type": "bool",
+          "overloads": 1
+        },
+        "HireCoach": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 3,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Train": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "bool",
+          "overloads": 1
+        },
+        "AdvanceWeek": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Performance.AdaptiveGraphics": {
+      "kind": "class",
+      "namespace": "Fotbool.Performance",
+      "name": "AdaptiveGraphics",
+      "file": "_Project/Scripts/Performance/AdaptiveGraphics.cs",
+      "lineStart": 7,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "TargetFps": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "original": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "UniversalRenderPipelineAsset",
+          "overloads": 1
+        },
+        "runtime": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "UniversalRenderPipelineAsset",
+          "overloads": 1
+        },
+        "elapsed": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "sum": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "frames": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "OnEnable": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Update": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDisable": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Performance.ObjectPool": {
+      "kind": "class",
+      "namespace": "Fotbool.Performance",
+      "name": "ObjectPool",
+      "file": "_Project/Scripts/Performance/ObjectPool.cs",
+      "lineStart": 7,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "prefab": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "GameObject",
+          "overloads": 1
+        },
+        "capacity": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "available": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Queue\u003CGameObject\u003E",
+          "overloads": 1
+        },
+        "leased": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "HashSet\u003CGameObject\u003E",
+          "overloads": 1
+        },
+        "Awake": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Rent": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "GameObject",
+          "overloads": 1
+        },
+        "Return": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "bool",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Presentation.CameraController": {
+      "kind": "class",
+      "namespace": "Fotbool.Presentation",
+      "name": "CameraController",
+      "file": "_Project/Scripts/Presentation/CameraController.cs",
+      "lineStart": 6,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Mode": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "View",
+          "overloads": 1
+        },
+        "Ball": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Transform",
+          "overloads": 1
+        },
+        "ControlledPlayer": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "Transform",
+          "overloads": 1
+        },
+        "Match": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "MatchManager",
+          "overloads": 1
+        },
+        "Replay": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "ReplayRecorder",
+          "overloads": 1
+        },
+        "responsiveness": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "lens": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Camera",
+          "overloads": 1
+        },
+        "replayFocus": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector3",
+          "overloads": 1
+        },
+        "IsReplaying": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "returnPhase": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "MatchPhase",
+          "overloads": 1
+        },
+        "Awake": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "NextView": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "StartReplay": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "StopReplay": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "LateUpdate": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDisable": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Presentation.ReplayRecorder": {
+      "kind": "class",
+      "namespace": "Fotbool.Presentation",
+      "name": "ReplayRecorder",
+      "file": "_Project/Scripts/Presentation/ReplayRecorder.cs",
+      "lineStart": 7,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [
+        "MonoBehaviour"
+      ],
+      "members": {
+        "Capacity": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "Interval": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "Match": {
+          "kind": "field",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "MatchManager",
+          "overloads": 1
+        },
+        "IsPlaying": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "PlaybackTime": {
+          "kind": "property",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "sources": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Transform[]",
+          "overloads": 1
+        },
+        "ghosts": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Transform[]",
+          "overloads": 1
+        },
+        "liveRenderers": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Renderer[]",
+          "overloads": 1
+        },
+        "visibility": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "bool[]",
+          "overloads": 1
+        },
+        "positions": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Vector3[,]",
+          "overloads": 1
+        },
+        "rotations": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "Quaternion[,]",
+          "overloads": 1
+        },
+        "timestamps": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float[]",
+          "overloads": 1
+        },
+        "head": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "count": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "first": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "cursor": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "int",
+          "overloads": 1
+        },
+        "nextSample": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "float",
+          "overloads": 1
+        },
+        "ghostRoot": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "GameObject",
+          "overloads": 1
+        },
+        "Initialize": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 1,
+          "type": "void",
+          "overloads": 1
+        },
+        "LateUpdate": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Begin": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "bool",
+          "overloads": 1
+        },
+        "Step": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 2,
+          "type": "bool",
+          "overloads": 1
+        },
+        "End": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "OnDestroy": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Presentation.View": {
+      "kind": "enum",
+      "namespace": "Fotbool.Presentation",
+      "name": "View",
+      "file": "_Project/Scripts/Presentation/CameraController.cs",
+      "lineStart": 9,
+      "abstract": false,
+      "sealed": false,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "Broadcast": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "Action": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        },
+        "DynamicFollow": {
+          "kind": "enumMember",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "",
+          "overloads": 1
+        }
+      }
+    },
+    "Fotbool.Tests.CoreTests": {
+      "kind": "class",
+      "namespace": "Fotbool.Tests",
+      "name": "CoreTests",
+      "file": "_Project/Tests/EditMode/CoreTests.cs",
+      "lineStart": 9,
+      "abstract": false,
+      "sealed": true,
+      "static": false,
+      "baseTypes": [],
+      "members": {
+        "root": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "GameObject",
+          "overloads": 1
+        },
+        "manager": {
+          "kind": "field",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "ClubManager",
+          "overloads": 1
+        },
+        "SetUp": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "TearDown": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "Player": {
+          "kind": "method",
+          "visibility": "private",
+          "parameters": 0,
+          "type": "PlayerProfile",
+          "overloads": 1
+        },
+        "UniformAttributesRetainOverallAcrossPositions": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "InvalidAttributesAreRejected": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "FiveDifficultiesImproveReactionAndAccuracy": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "TransferConservesMoneyAndMovesOwnershipOnce": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "RejectedOfferDoesNotMutateEconomy": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "TrainingIsCappedAndLimitedToOncePerWeek": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        },
+        "FormationSlotsRemainInsidePitch": {
+          "kind": "method",
+          "visibility": "public",
+          "parameters": 0,
+          "type": "void",
+          "overloads": 1
+        }
+      }
+    }
+  }
+}

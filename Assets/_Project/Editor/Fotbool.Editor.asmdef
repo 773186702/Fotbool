@@ -1,0 +1,14 @@
+{
+    "name": "Fotbool.Editor",
+    "rootNamespace": "Fotbool.Editor",
+    "references": ["Fotbool.Runtime"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

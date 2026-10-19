@@ -1,0 +1,54 @@
+Fotbool C# syntax verification (Roslyn 4.14.0.0)
+Assets root: D:\Fotbool\Assets
+Files: 16
+Lines: 1532
+Declared types: 33
+Syntax errors: 0  Warnings: 0
+[PASS] all files parse as valid C#
+Contracts file: Tools\Verification\contracts\core-api.json
+Contracts: 11 type(s) and 87 member(s) checked
+[PASS] every declared contract is satisfied
+Unity project: D:\Fotbool
+Project metrics: package dependencies: 18, asset files: 18, meta guids: 0, assemblies: 2, scripts inside asmdef: 16, scenes: 0
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/ProjectSettings.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/GraphicsSettings.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/QualitySettings.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/EditorBuildSettings.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/TagManager.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/DynamicsManager.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/InputManager.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/TimeManager.asset
+  WARN  ProjectSettings file missing (Unity recreates it on open, commit it once generated): ProjectSettings/Physics2DSettings.asset
+  WARN  EditorBuildSettings.asset is missing, so the build scene list could not be verified.
+  ERROR missing .meta for Assets/_Project/
+  ERROR missing .meta for Assets/_Project/Scripts/
+  ERROR missing .meta for Assets/_Project/Scripts/AI/
+  ERROR missing .meta for Assets/_Project/Scripts/AI/FootballAI.cs
+  ERROR missing .meta for Assets/_Project/Scripts/AI/TacticalAI.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Core/
+  ERROR missing .meta for Assets/_Project/Scripts/Core/MatchBootstrapper.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Core/MatchManager.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Data/
+  ERROR missing .meta for Assets/_Project/Scripts/Data/GameTypes.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Data/PlayerDataSO.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Data/TeamDataSO.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Fotbool.Runtime.asmdef
+  ERROR missing .meta for Assets/_Project/Scripts/Gameplay/
+  ERROR missing .meta for Assets/_Project/Scripts/Gameplay/BallPhysics.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Gameplay/PlayerController.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Inputs/
+  ERROR missing .meta for Assets/_Project/Scripts/Inputs/MobileControls.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Management/
+  ERROR missing .meta for Assets/_Project/Scripts/Management/ClubManager.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Performance/
+  ERROR missing .meta for Assets/_Project/Scripts/Performance/AdaptiveGraphics.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Performance/ObjectPool.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Presentation/
+  ERROR missing .meta for Assets/_Project/Scripts/Presentation/CameraController.cs
+  ERROR missing .meta for Assets/_Project/Scripts/Presentation/ReplayRecorder.cs
+  ERROR missing .meta for Assets/_Project/Tests/
+  ERROR missing .meta for Assets/_Project/Tests/EditMode/
+  ERROR missing .meta for Assets/_Project/Tests/EditMode/CoreTests.cs
+  ERROR missing .meta for Assets/_Project/Tests/EditMode/Fotbool.Tests.EditMode.asmdef
+  ERROR no .unity scene exists under Assets, so there is nothing to open, play or build.
+[FAIL] 31 project integrity error(s)

@@ -1,0 +1,168 @@
+{
+  "$comment": "Machine-checkable public API surface. Every entry here is called by another file in the project, so renaming or hiding one is a breaking change. Verified by Tools/Verification/SyntaxCheck (--contracts).",
+  "version": 1,
+  "types": [
+    {
+      "name": "Fotbool.Core.MatchManager",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Players", "kind": "field", "type": "List<PlayerController>" },
+        { "name": "Ball", "kind": "property", "type": "BallPhysics" },
+        { "name": "Phase", "kind": "property", "type": "MatchPhase" },
+        { "name": "HomeGoals", "kind": "property", "type": "int" },
+        { "name": "AwayGoals", "kind": "property", "type": "int" },
+        { "name": "Elapsed", "kind": "property", "type": "float" },
+        { "name": "Duration", "kind": "field", "type": "float" },
+        { "name": "Progress", "kind": "property", "type": "float" },
+        { "name": "HomeAttackSign", "kind": "property", "type": "int" },
+        { "name": "GoalScored", "kind": "event", "type": "Action<TeamSide>" },
+        { "name": "Finished", "kind": "event", "type": "Action" },
+        { "name": "Initialize", "kind": "method", "parameters": 1, "type": "void" },
+        { "name": "Nearest", "kind": "method", "parameters": 3, "type": "PlayerController" },
+        { "name": "PassTarget", "kind": "method", "parameters": 1, "type": "PlayerController" },
+        { "name": "ResetKickoff", "kind": "method", "parameters": 0, "type": "void" },
+        { "name": "SetPhase", "kind": "method", "parameters": 1, "type": "void" }
+      ]
+    },
+    {
+      "name": "Fotbool.Core.MatchPhase",
+      "kind": "enum",
+      "members": [
+        { "name": "Playing", "kind": "enumMember" },
+        { "name": "Paused", "kind": "enumMember" },
+        { "name": "Replay", "kind": "enumMember" },
+        { "name": "Finished", "kind": "enumMember" }
+      ]
+    },
+    {
+      "name": "Fotbool.Core.MatchBootstrapper",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Difficulty", "kind": "field", "type": "AIDifficulty" }
+      ]
+    },
+    {
+      "name": "Fotbool.Gameplay.BallPhysics",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Body", "kind": "property", "type": "Rigidbody" },
+        { "name": "LastTouch", "kind": "property", "type": "PlayerController" },
+        { "name": "CanControl", "kind": "property", "type": "bool" },
+        { "name": "IsReachable", "kind": "method", "parameters": 2, "type": "bool" },
+        { "name": "Kick", "kind": "method", "parameters": 3, "type": "bool" },
+        { "name": "Dribble", "kind": "method", "parameters": 2, "type": "void" },
+        { "name": "ResetBall", "kind": "method", "parameters": 1, "type": "void" }
+      ]
+    },
+    {
+      "name": "Fotbool.Gameplay.PlayerController",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Profile", "kind": "property", "type": "PlayerProfile" },
+        { "name": "Side", "kind": "property", "type": "TeamSide" },
+        { "name": "AttackSign", "kind": "property", "type": "int" },
+        { "name": "IsHuman", "kind": "property", "type": "bool" },
+        { "name": "Ball", "kind": "property", "type": "BallPhysics" },
+        { "name": "Body", "kind": "property", "type": "Rigidbody" },
+        { "name": "Fitness", "kind": "property", "type": "float" },
+        { "name": "HasBall", "kind": "property", "type": "bool" },
+        { "name": "MoveIntent", "kind": "property", "type": "Vector3" },
+        { "name": "Sprinting", "kind": "property", "type": "bool" },
+        { "name": "Initialize", "kind": "method", "parameters": 3, "type": "void" },
+        { "name": "SetMove", "kind": "method", "parameters": 2, "type": "void" },
+        { "name": "Shoot", "kind": "method", "parameters": 3, "type": "bool" },
+        { "name": "Pass", "kind": "method", "parameters": 2, "type": "bool" },
+        { "name": "Tackle", "kind": "method", "parameters": 0, "type": "bool" },
+        { "name": "SkillMove", "kind": "method", "parameters": 1, "type": "bool" },
+        { "name": "ResetPosition", "kind": "method", "parameters": 2, "type": "void" }
+      ]
+    },
+    {
+      "name": "Fotbool.AI.FootballAI",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Difficulty", "kind": "field", "type": "AIDifficulty" },
+        { "name": "Match", "kind": "field", "type": "MatchManager" },
+        { "name": "Team", "kind": "field", "type": "TacticalAI" },
+        { "name": "FormationSlot", "kind": "field", "type": "int" },
+        { "name": "CurrentState", "kind": "property", "type": "State" },
+        { "name": "ReactionSeconds", "kind": "method", "parameters": 1, "type": "float" },
+        { "name": "AimError", "kind": "method", "parameters": 1, "type": "float" }
+      ]
+    },
+    {
+      "name": "Fotbool.AI.TacticalAI",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Match", "kind": "field", "type": "MatchManager" },
+        { "name": "Side", "kind": "field", "type": "TeamSide" },
+        { "name": "Tactics", "kind": "field", "type": "TacticsProfile" },
+        { "name": "Adaptive", "kind": "field", "type": "bool" },
+        { "name": "Pressing", "kind": "property", "type": "float" },
+        { "name": "Slot", "kind": "method", "parameters": 2, "type": "Vector2" },
+        { "name": "Target", "kind": "method", "parameters": 2, "type": "Vector3" }
+      ]
+    },
+    {
+      "name": "Fotbool.AI.State",
+      "kind": "enum",
+      "members": [
+        { "name": "HoldFormation", "kind": "enumMember" },
+        { "name": "Chase", "kind": "enumMember" },
+        { "name": "Support", "kind": "enumMember" },
+        { "name": "Dribble", "kind": "enumMember" },
+        { "name": "Pass", "kind": "enumMember" },
+        { "name": "Shoot", "kind": "enumMember" },
+        { "name": "Tackle", "kind": "enumMember" },
+        { "name": "GuardGoal", "kind": "enumMember" }
+      ]
+    },
+    {
+      "name": "Fotbool.Inputs.MobileControls",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Match", "kind": "field", "type": "MatchManager" },
+        { "name": "View", "kind": "field", "type": "CameraController" },
+        { "name": "Selected", "kind": "property", "type": "PlayerController" },
+        { "name": "SwitchPlayer", "kind": "method", "parameters": 0, "type": "void" }
+      ]
+    },
+    {
+      "name": "Fotbool.Presentation.CameraController",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Mode", "kind": "field", "type": "View" },
+        { "name": "Ball", "kind": "field", "type": "Transform" },
+        { "name": "ControlledPlayer", "kind": "field", "type": "Transform" },
+        { "name": "Match", "kind": "field", "type": "MatchManager" },
+        { "name": "Replay", "kind": "field", "type": "ReplayRecorder" },
+        { "name": "IsReplaying", "kind": "property", "type": "bool" },
+        { "name": "NextView", "kind": "method", "parameters": 0, "type": "void" },
+        { "name": "StartReplay", "kind": "method", "parameters": 0, "type": "bool" },
+        { "name": "StopReplay", "kind": "method", "parameters": 0, "type": "void" }
+      ]
+    },
+    {
+      "name": "Fotbool.Presentation.ReplayRecorder",
+      "kind": "class",
+      "baseTypes": ["MonoBehaviour"],
+      "members": [
+        { "name": "Match", "kind": "field", "type": "MatchManager" },
+        { "name": "IsPlaying", "kind": "property", "type": "bool" },
+        { "name": "PlaybackTime", "kind": "property", "type": "float" },
+        { "name": "Initialize", "kind": "method", "parameters": 1, "type": "void" },
+        { "name": "Begin", "kind": "method", "parameters": 0, "type": "bool" },
+        { "name": "Step", "kind": "method", "parameters": 2, "type": "bool" },
+        { "name": "End", "kind": "method", "parameters": 0, "type": "void" }
+      ]
+    }
+  ]
+}

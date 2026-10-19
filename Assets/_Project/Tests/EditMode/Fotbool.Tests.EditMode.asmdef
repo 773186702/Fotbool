@@ -1,0 +1,8 @@
+{
+  "name": "Fotbool.Tests.EditMode",
+  "rootNamespace": "Fotbool.Tests",
+  "references": ["Fotbool.Runtime"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}

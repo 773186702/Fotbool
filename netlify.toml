@@ -1,0 +1,27 @@
+[build]
+  publish = "Builds/WebGL"
+  command = "echo 'Build WebGL in Unity, then upload this folder'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "cross-origin"
+
+[[headers]]
+  for = "Build/*.*"
+  [headers.values]
+    Content-Encoding = "br"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "TemplateData/*.*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[redirects]
+  from = "/*"
+  to = "/index.html"
+  status = 200
