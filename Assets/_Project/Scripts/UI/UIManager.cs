@@ -24,6 +24,24 @@ namespace Fotbool.UI
         public GameObject careerPanel;
 
         [Header("Intro & Welcome Panels")]
+        // أضف هذا إلى UIManager.cs في منطقة Intro & Welcome Panels
+
+public void ShowWebGLLoading()
+{
+    HideAll();
+    // إظهار شاشة تحميل WebGL إذا كانت موجودة
+}
+
+public void HideWebGLLoading()
+{
+    // إخفاء شاشة التحميل
+}
+
+public void OpenBrowserURL(string url)
+{
+    Application.OpenURL(url);
+}
+
         public GameObject kineticIntroPanel;
         public GameObject welcomePanel;
         public GameObject gameIntroductionPanel;
